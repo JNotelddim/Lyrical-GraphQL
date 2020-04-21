@@ -17,7 +17,7 @@ class SongList extends Component {
   renderSongs() {
     const songList = this.props.data.songs.map(({ id, title }) => (
       <li key={id} className="collection-item">
-        {title}
+        {title} - {id}
         <i className="material-icons" onClick={() => this.onSongDelete(id)}>
           delete
         </i>
