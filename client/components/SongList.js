@@ -6,11 +6,12 @@ import songsQuery from "../queries/fetchSongs";
 import mutation from "../queries/deleteSong";
 
 class SongList extends Component {
-  onSongDelete(event) {
-    this.props.mutate({
-      variables: { id },
-      refetchQueries: [{ query: songsQuery }],
-    });
+  onSongDelete(id) {
+    this.props
+      .mutate({
+        variables: { id },
+      })
+      .then(() => this.props.data.refetch());
   }
 
   renderSongs() {
@@ -19,7 +20,7 @@ class SongList extends Component {
         {title}
         <i
           className="material-icons right"
-          onClick={this.onSongDelete.bind(this)}
+          onClick={() => this.onSongDelete(id)}
         >
           delete
         </i>
