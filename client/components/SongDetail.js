@@ -3,9 +3,9 @@ import gql from "graphql-tag";
 import { graphql } from "react-apollo";
 import { Link, hashHistory } from "react-router";
 
-import LyricCreate from "./LyricCreate";
-
 import songQuery from "../queries/fetchSong";
+import LyricList from "./LyricList";
+import LyricCreate from "./LyricCreate";
 
 class SongDetail extends Component {
   render() {
@@ -16,9 +16,7 @@ class SongDetail extends Component {
       <div>
         <Link to="/">Back</Link>
         <h3>{title}</h3>
-        {lyrics.map(({ id, content }) => (
-          <p key={id}>{content}</p>
-        ))}
+        <LyricList lyrics={lyrics} />
         <LyricCreate songId={id} />
       </div>
     );
