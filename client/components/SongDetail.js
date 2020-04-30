@@ -12,7 +12,6 @@ const SongDetail = ({ data: { loading, song } }) => {
 
   const { id, title, lyrics } = song;
 
-  console.log(song);
   return (
     <div>
       <Link to="/">Back</Link>
@@ -22,22 +21,6 @@ const SongDetail = ({ data: { loading, song } }) => {
     </div>
   );
 };
-
-// class SongDetail extends Component {
-//   render() {
-//     if (this.props.data.loading) return <div>Loading</div>;
-
-//     const { id, title, lyrics } = this.props.data.song;
-//     return (
-//       <div>
-//         <Link to="/">Back</Link>
-//         <h3>{title}</h3>
-//         <LyricList lyrics={lyrics} />
-//         <LyricCreate songId={id} />
-//       </div>
-//     );
-//   }
-// }
 
 export default graphql(songQuery, {
   options: (props) => ({ variables: { id: props.params.id } }),

@@ -6,7 +6,8 @@ import songsQuery from "../queries/fetchSongs";
 import mutation from "../queries/deleteSong";
 
 class SongList extends Component {
-  onSongDelete(id) {
+  onSongDelete(event, id) {
+    event.preventDefault();
     this.props
       .mutate({
         variables: { id },
@@ -19,7 +20,10 @@ class SongList extends Component {
       <Link key={id} to={`/songs/${id}`}>
         <li className="collection-item">
           {title}
-          <i className="material-icons" onClick={() => this.onSongDelete(id)}>
+          <i
+            className="material-icons"
+            onClick={(e) => this.onSongDelete(e, id)}
+          >
             delete
           </i>
         </li>
