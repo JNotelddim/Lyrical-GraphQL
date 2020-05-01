@@ -5,10 +5,6 @@ export default gql`
     likeLyric(id: $id) {
       id
       likes
-      content
-      song {
-        title
-      }
     }
   }
 `;
