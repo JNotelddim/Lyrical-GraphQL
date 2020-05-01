@@ -1,6 +1,12 @@
 .collection-item {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.margin-m {
+  margin-left: 12px;
+  margin-right: 12px;
 }
 
 .material-icons {
